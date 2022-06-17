@@ -1,0 +1,9 @@
+name: "TIL README.md Generator"
+description: "TIL README.md Index generator / TIL의 README.md 목차 생성기"
+inputs:
+  description: 'what's your TIL?'
+  required: false
+  default: ''
+runs:
+  using: "docker"
+  image: "Dockerfile"
