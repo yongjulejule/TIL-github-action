@@ -4,10 +4,9 @@ description: "TIL README.md Index generator / TIL의 README.md 목차 생성기"
 icon: "align-justify"
 color: "purple"
 inputs:
-  description: "whats your TIL?"
-  required: false
-outputs:
-  description: "hi time"
+  about-til:
+    description: "whats your TIL?"
+    required: false
 runs:
   using: "docker"
   image: "Dockerfile"
