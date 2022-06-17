@@ -3,6 +3,6 @@
 node -v
 echo "hello action with docker"
 
-node <<< "hello action with docker in node"
+echo "console.log('hello action with docker in node')"  | node 
 
 exec "$@"
