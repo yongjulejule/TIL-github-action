@@ -1,12 +1,13 @@
 name: "TIL README.md Generator"
+author: "yongjule <lyjshow200@gmail.com>"
 description: "TIL README.md Index generator / TIL의 README.md 목차 생성기"
+icon: "align-justify"
+color: "purple"
 inputs:
-  description: 'what's your TIL?'
+  description: "whats your TIL?"
   required: false
-  default: ''
 outputs:
-  time:
-    description: 'hi time'
+  description: "hi time"
 runs:
   using: "docker"
   image: "Dockerfile"

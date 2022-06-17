@@ -1,6 +1,6 @@
 on:
   workflow_dispatch:
-    
+
 jobs:
   hello-my-actions:
     runs-on: ubuntu-latest
@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-      - name: Run My Actions 
-        uses: ./ # 루트 디렉토리에 있는 액션을 사용하라는 의미이다.
+      - name: TIL README.md Generator
+        uses: yongjulejule/TIL-github-action@test
