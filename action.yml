@@ -4,6 +4,9 @@ inputs:
   description: 'what's your TIL?'
   required: false
   default: ''
+outputs:
+  time:
+    description: 'hi time'
 runs:
   using: "docker"
   image: "Dockerfile"
