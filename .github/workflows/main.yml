@@ -30,3 +30,4 @@ jobs:
           echo $JOB_LEVEL_1
           echo $STEP_LEVEL_2
           echo `env`
+          echo gitub env variable : $GITHUB_ENV
