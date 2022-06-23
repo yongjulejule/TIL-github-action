@@ -1,6 +1,6 @@
 name: "Hi"
 
-on: push
+on: [ 'push' , 'pull_request' ]
 
 jobs:
   hello-my-actions:
@@ -20,7 +20,6 @@ jobs:
         run: |
           echo "hi"
           echo `env`
-          echo TEST : ${{ secrets.TESTENV.MY_SECRET }}
           cat $GITHUB_ENV
           
   new-job:
