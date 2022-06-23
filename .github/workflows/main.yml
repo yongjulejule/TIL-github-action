@@ -10,7 +10,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
       - name: TIL README.md Generator
-        uses: yongjulejule/TIL-github-action@test
+        uses: yongjulejule/TIL-github-action@main
       - name: hello world
         shell: bash
         run: |
