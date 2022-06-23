@@ -1,6 +1,6 @@
 name: "Hi"
 
-on: push
+on: [ 'push' , 'pull_request' ]
 
 jobs:
   hello-my-actions:
@@ -10,8 +10,50 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
       - name: TIL README.md Generator
-        uses: yongjulejule/TIL-github-action@test
+        uses: yongjulejule/TIL-github-action@main
+
+  justin-yoo-action:
+    runs-on: ubuntu-latest
+    name: Hello action for test
+    env:
+      hi: ${{ secrets.MY_SECRET}}
+    steps:
       - name: hello world
         shell: bash
         run: |
           echo "hi"
+          echo `env`
+          echo $hi
+          cat $GITHUB_ENV
+          
+  new-job:
+      name: "new job"
+      needs:
+        - hello-my-actions
+      
+      strategy:
+        matrix:
+          os: [ "ubuntu-latest", "windows-latest" ]
+          nodejs: [ "14.x", "16.x" ]
+
+     
+      runs-on: ${{ matrix.os }}
+      steps:
+        - name: setup Nodejs
+          uses: actions/setup-node@v3
+          with:
+            node-version: ${{ matrix.nodejs }}
+        - name: "new job"
+          run: |
+            echo os : ${{ matrix.os }}
+            echo nodejs: ${{ matrix.nodejs }}
+
+  pr-job:
+    name: "PR job"
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "PR jobb"
+        run: |
+          echo "PR job"
+
