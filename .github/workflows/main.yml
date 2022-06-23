@@ -26,3 +26,6 @@ jobs:
           STEP_LEVEL_2: "Step LV 2 env"
         run: |
           echo "hi"
+          echo $WORKFLOW_LEVEL
+          echo $JOB_LEVEL_1
+          echo $STEP_LEVEL_2
