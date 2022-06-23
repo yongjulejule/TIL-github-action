@@ -1,5 +1,6 @@
-on:
-  workflow_dispatch:
+name: "Hi"
+
+on: push
 
 jobs:
   hello-my-actions:
@@ -10,3 +11,7 @@ jobs:
         uses: actions/checkout@v1
       - name: TIL README.md Generator
         uses: yongjulejule/TIL-github-action@test
+      - name: hello world
+        shell: bash
+        run: |
+          echo "hi"
