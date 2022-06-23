@@ -17,6 +17,7 @@ jobs:
     steps:
       - name: hello world
         shell: bash
+        environment: TESTENV
         run: |
           echo "hi"
           echo ${JOB_LEVEL_1:-ThisIsDefultVariable}
