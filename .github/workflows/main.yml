@@ -18,7 +18,6 @@ jobs:
       - name: hello world
         shell: bash
         run: |
-          set -x
           echo "hi"
           echo ${JOB_LEVEL_1:-ThisIsDefultVariable}
           echo `env`
