@@ -46,7 +46,7 @@ jobs:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
-      - name: "PR job"
+      - name: "PR jobb"
         run: |
           echo "PR job"
 
