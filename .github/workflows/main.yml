@@ -18,12 +18,11 @@ jobs:
       - name: hello world
         shell: bash
         run: |
+          set -x
           echo "hi"
-          echo $WORKFLOW_LEVEL
           echo ${JOB_LEVEL_1:-ThisIsDefultVariable}
-          echo $STEP_LEVEL_2
           echo `env`
-          echo $TEST
+          echo TEST : $MY_SECRET :  ${{ env.MY_SECRET }} : ${{ TESTENV.MY_SECRET }}
           echo gitub env variable : $GITHUB_ENV
           export a=b;
           echo `env | grep a`
