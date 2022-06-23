@@ -21,7 +21,8 @@ jobs:
           echo "hi"
           echo ${JOB_LEVEL_1:-ThisIsDefultVariable}
           echo `env`
-          echo TEST : $MY_SECRET :  ${{ secrets.MY_SECRET }}
+          echo TEST ${{ secrets.MY_SECRET }} >test
+          cat test
           echo gitub env variable : $GITHUB_ENV
           export a=b;
           echo `env | grep a`
