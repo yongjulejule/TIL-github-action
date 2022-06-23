@@ -19,10 +19,10 @@ jobs:
     name: Hello action for test
     env:
       JOB_LEVEL_1: "JOB LV1 env"
-      steps:
-        - name: hello world
-          shell: bash
-          env:
-            STEP_LEVEL_2: "Step LV 2 env"
-          run: |
-            echo "hi"
+    steps:
+      - name: hello world
+        shell: bash
+        env:
+          STEP_LEVEL_2: "Step LV 2 env"
+        run: |
+          echo "hi"
