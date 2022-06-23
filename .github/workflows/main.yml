@@ -41,3 +41,12 @@ jobs:
             echo os : ${{ matrix.os }}
             echo nodejs: ${{ matrix.nodejs }}
 
+  pr-job:
+    name: "PR job"
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "PR job"
+        run: |
+          echo "PR job"
+
