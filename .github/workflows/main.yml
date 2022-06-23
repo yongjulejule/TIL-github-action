@@ -35,6 +35,7 @@ jobs:
         - name: "new job"
           shell: bash
           run: |
+            echo os : ${{ matrix.os }}
             echo "hi"
             echo `env`
             echo `hostname`
