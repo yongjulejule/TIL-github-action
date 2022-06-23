@@ -2,9 +2,6 @@ name: "Hi"
 
 on: push
 
-env:
-  WORKFLOW_LEVEL: "THIS VALUE COMES FROM THE WORKFLOW LEVEL HAHAHAHA "
-
 jobs:
   hello-my-actions:
     runs-on: ubuntu-latest
@@ -17,13 +14,9 @@ jobs:
   justin-yoo-action:
     runs-on: ubuntu-latest
     name: Hello action for test
-    env:
-      JOB_LEVEL_1: "JOB LV1 env"
     steps:
       - name: hello world
         shell: bash
-        env:
-          STEP_LEVEL_2: "Step LV 2 env"
         run: |
           echo "hi"
           echo $WORKFLOW_LEVEL
