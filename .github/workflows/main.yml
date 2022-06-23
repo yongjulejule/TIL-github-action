@@ -21,8 +21,21 @@ jobs:
           echo "hi"
           echo ${JOB_LEVEL_1:-ThisIsDefultVariable}
           echo `env`
-          echo TEST : $MY_SECRET :  ${{ env.MY_SECRET }}
+          echo TEST : $MY_SECRET :  ${{ secret.MY_SECRET }}
           echo gitub env variable : $GITHUB_ENV
           export a=b;
           echo `env | grep a`
           cat $GITHUB_ENV
+  js-action-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sec action
+      shell: bash
+      run: |
+        first_value="this is 1st output"
+
+        echo "::set-output name=my_first_value::$first_value"
+      - name: get output value
+      shell: bash
+      run: |
+        echo ${{ steps.first.outputs.my_first_value }}
