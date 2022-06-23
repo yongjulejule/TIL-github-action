@@ -27,14 +27,16 @@ jobs:
           echo `env | grep a`
           cat $GITHUB_ENV
   js-action-2:
+
     runs-on: ubuntu-latest
     steps:
-      - name: sec action
+      - name: set output value
+      id: first
       shell: bash
       run: |
-        first_value="this is 1st output"
-
+        first_value="This is the first output value"
         echo "::set-output name=my_first_value::$first_value"
+
       - name: get output value
       shell: bash
       run: |
