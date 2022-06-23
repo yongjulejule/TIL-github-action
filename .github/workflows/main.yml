@@ -31,3 +31,6 @@ jobs:
           echo $STEP_LEVEL_2
           echo `env`
           echo gitub env variable : $GITHUB_ENV
+          export a=b;
+          echo `env | grep a`
+          cat $GITHUB_ENV
