@@ -20,5 +20,22 @@ jobs:
         run: |
           echo "hi"
           echo `env`
-          echo TEST : ${{ secrets.MY_SECRET }}
+          echo TEST : ${{ secrets.TESTENV.MY_SECRET }}
           cat $GITHUB_ENV
+          
+  new-job:
+      name: "new job"
+      
+      strategy:
+        matrix:
+          os: [ "ubuntu-latest", "windows-latest" ]
+      
+      runs-on: ${{ matrix.os }}
+      steps:
+        - name: "new job"
+          shell: bash
+          run: |
+            echo "hi"
+            echo `env`
+            echo `hostname`
+
