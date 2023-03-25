@@ -1,14 +1,20 @@
 name: "Hi"
 
-on: [push]
+on:
+  push: 
+    branches:
+      - readme-bot
 
 jobs:
   hello-my-actions:
     runs-on: ubuntu-latest
     name: Hello My Actions
     steps:
-      # - name: checkout
-        # uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"
       - name: TIL README.md Generator
         id: til
         uses: yongjulejule/TIL-github-action@testv1

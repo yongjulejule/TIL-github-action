@@ -1,12 +1,9 @@
 #!/bin/bash
 
-echo "hello action with docker"
+/tmp/generateREADME.md -f README.md
 
-echo "about-til='thisisTIL'" > ${GITHUB_OUTPUT:-/dev/stdout}
-
-if [[ $1 =~ "generateREADME.sh" ]]; then
-  set -- $@ -f README.md
-  exec $@
-fi
-
-exec "$@" 
+git config --local user.email "action@github.com"
+git config --local user.name "GitHub Action"
+git add README.md
+git commit -m "Update README.md"
+git push origin readme-bot
