@@ -4,6 +4,7 @@
 
 cd $GITHUB_WORKSPACE
 
+git config --global --add safe.directory /github/workspace
 git config --local user.email "action@github.com"
 git config --local user.name "GitHub Action"
 git add README.md
