@@ -1,13 +1,6 @@
 name: "TIL README.md Generator"
 author: "yongjule <lyjshow200@gmail.com>"
 description: "TIL README.md Index generator / TIL의 README.md 목차 생성기"
-inputs:
-  about-til:
-    description: "whats your TIL?"
-    required: false
-outputs:
-  about-til:
-    description: "whats your TIL?"
 runs:
   using: "docker"
   image: "Dockerfile"
