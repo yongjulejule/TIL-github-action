@@ -15,7 +15,7 @@ function cleanup {
   exit 1
 }
 
-trap cleanup SIGTERM SIGINT EXIT
+trap cleanup SIGTERM SIGINT
 
 function check_options {
   if [ $# -eq 2 ] && [ "$1" == "-f" ]; then
@@ -79,3 +79,5 @@ for d in ${dirs[@]}; do
 done
 
 [ $input == "Y" ] && mv $tmp_file $dest_file
+
+return 0
