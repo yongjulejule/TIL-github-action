@@ -3,7 +3,6 @@
 - Today I Learned index generator with github-action
 - You can use [actions/checkout](https://github.com/actions/checkout) and [peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request) together to automate README.md updates.
 
-
 # Variables
 
 - You can add content to the header by setting a variable called TIL_HEADER in the repository.
@@ -47,6 +46,7 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
+          # Should set the github personal access token with sufficient permissions.
           token: ${{ secrets.PAT }}
           commit-message: Update report
           committer: GitHub <noreply@github.com>
