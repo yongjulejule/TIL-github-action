@@ -8,6 +8,4 @@ COPY tools/generateREADME.sh /tmp/generateREADME.sh
 
 WORKDIR /main
 
-ENTRYPOINT ["/tmp/entrypoint.sh"]
-
 CMD ["/tmp/generateREADME.sh"]
