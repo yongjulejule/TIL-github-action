@@ -1,0 +1,17 @@
+name: "PR"
+
+on:
+  push: 
+    branches:
+      - readme-bot
+
+jobs:
+  hello-my-actions:
+    runs-on: ubuntu-latest
+    name: Hello My Actions
+    steps:
+      - uses: actions/checkout@v3
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "main"

@@ -1,0 +1,15 @@
+name: "update readme"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update README
+        id: TIL
+        uses: yongjulejule/TIL-github-action@testv1
