@@ -10,7 +10,10 @@ jobs:
       # - name: checkout
         # uses: actions/checkout@v1
       - name: TIL README.md Generator
+        id: til
         uses: yongjulejule/TIL-github-action@testv1
+      - name: Get Output
+        run: echo "The output is ${{ steps.til.outputs.about-til }}"
       - name: hello world
         shell: bash
         run: |
