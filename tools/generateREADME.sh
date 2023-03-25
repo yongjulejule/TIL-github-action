@@ -5,7 +5,6 @@ set -x
 set -- "$@" "-f" "README.md"
 
 tmp_file=$(mktemp)
-dest_file=${DEST_FILE:-'/dev/null'}
 
 function cleanup {
   echo "cleanup"
