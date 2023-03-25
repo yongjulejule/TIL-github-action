@@ -8,6 +8,7 @@ git config --global --add safe.directory /github/workspace
 git config --local user.email "action@github.com"
 git config --local user.name "GitHub Action"
 git switch -c readme-bot
+echo "testing..." >> README.md
 git add README.md
 git commit -m "Update README.md"
 git push origin readme-bot
