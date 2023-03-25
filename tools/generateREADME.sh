@@ -9,7 +9,7 @@ if [ IS_DOCKER_ENV ]; then
   set -- "$@" "-f" "README.md"
 fi
 
-echo "hi"
+echo "hi" > $2
 exit 0
 
 tmp_file=$(mktemp)
