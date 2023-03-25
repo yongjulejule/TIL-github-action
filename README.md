@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 0
       - name: Update README
         id: TIL
-        uses: yongjulejule/TIL-github-action@testv1
+        uses: yongjulejule/TIL-github-action@v1
         env:
           # The contents of the TIL_HEADER defined in variable in the repository.
           TIL_HEADER: ${{ vars.TIL_HEADER }}
