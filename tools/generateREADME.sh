@@ -1,7 +1,5 @@
 #!/bin/bash
 
-env
-
 cd $GITHUB_WORKSPACE
 set -- "$@" "-f" "README.md"
 
@@ -28,8 +26,6 @@ dirs=($(find $PWD -type d ! -path './.*' | sed 's/^\.\///' | sort))
 
 unset dirs[0]
 
-echo ${GITHUB_ENV_TIL_HEADER}
-
 if [[ -z $dirs ]]; then
   echo "No directories found. Please check again" >&2
   exit 1
@@ -38,7 +34,8 @@ fi
 cat <<EOF
 # TIL
 
-${GITHUB_ENV_TIL_HEADER}
+${TIL_HEADER}
+
 EOF
 
 echo "# Index"
