@@ -4,6 +4,8 @@ set -x
 
 set -- "$@" "-f" "README.md"
 
+git config --global --add safe.directory /github/workspace
+
 tmp_file=$(mktemp)
 
 function cleanup {
@@ -67,5 +69,6 @@ for d in ${dirs[@]}; do
 done
 
 mv $tmp_file $dest_file
+chmod 666 $dest_file
 
 exit 0
