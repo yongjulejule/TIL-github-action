@@ -1,12 +1,8 @@
-FROM node:alpine3.16
-
-RUN apk update && \
-	apk add --no-cache tini
+FROM debian:bullseye-slim
 
 COPY tools/entrypoint.sh /tmp/entrypoint.sh
+COPY tools/generateREADME.sh /tmp/generateREADME.sh
 
-RUN chmod +x /tmp/entrypoint.sh
+ENTRYPOINT ["/tmp/entrypoint.sh"]
 
-ENTRYPOINT ["/sbin/tini", "--", "/tmp/entrypoint.sh"]
-
-CMD ["node"]
+CMD ["/tmp/generateREADME.sh"]

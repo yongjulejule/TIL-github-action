@@ -7,10 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Hello My Actions
     steps:
-      - name: checkout
-        uses: actions/checkout@v1
+      # - name: checkout
+        # uses: actions/checkout@v1
       - name: TIL README.md Generator
-        uses: yongjulejule/TIL-github-action@test
+        uses: yongjulejule/TIL-github-action@testv1
       - name: hello world
         shell: bash
         run: |

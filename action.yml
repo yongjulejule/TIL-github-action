@@ -1,8 +1,6 @@
 name: "TIL README.md Generator"
 author: "yongjule <lyjshow200@gmail.com>"
 description: "TIL README.md Index generator / TIL의 README.md 목차 생성기"
-icon: "align-justify"
-color: "purple"
 inputs:
   about-til:
     description: "whats your TIL?"

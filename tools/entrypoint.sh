@@ -1,8 +1,12 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-node -v
+set -x
+
+trap 'kill $(jobs -p)' SIGTERM SIGINT EXIT
+
 echo "hello action with docker"
 
-echo "console.log('hello action with docker in node')"  | node 
+
+echo "this is github output" > ${GITHUB_OUTPUT:-/dev/stdout}
 
 exec "$@"
