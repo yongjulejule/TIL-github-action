@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 set -- "$@" "-f" "README.md"
 
 git config --global --add safe.directory /github/workspace
