@@ -2,13 +2,6 @@
 
 set -x
 
-ls 
-
-pwd
-
-env
-
-cd $GITHUB_WORKSPACE
 set -- "$@" "-f" "README.md"
 
 tmp_file=$(mktemp)
@@ -34,7 +27,7 @@ dirs=($(find . -type d ! -path './.*' | sed 's/^\.\///' | sort))
 
 unset dirs[0]
 
-if [[ -z $dirs ]]; then
+if [[ -z $dirs[@] ]]; then
   echo "No directories found. Please check again" >&2
   exit 1
 fi
@@ -74,6 +67,6 @@ for d in ${dirs[@]}; do
 	done
 done
 
-[ $input == "Y" ] && mv $tmp_file $dest_file
+mv $tmp_file $dest_file
 
 exit 0
