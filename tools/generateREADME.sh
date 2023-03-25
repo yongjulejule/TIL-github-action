@@ -4,13 +4,8 @@ set -euo pipefail
 
 IS_DOCKER_ENV=$([ -f /.dockerenv ])
 
-if [ IS_DOCKER_ENV ]; then
-  cd $GITHUB_WORKSPACE
-  set -- "$@" "-f" "README.md"
-fi
-
-echo "hi" > $2
-exit 0
+cd $GITHUB_WORKSPACE
+set -- "$@" "-f" "README.md"
 
 tmp_file=$(mktemp)
 dest_file=${DEST_FILE:-'/dev/null'}
@@ -27,26 +22,9 @@ function cleanup {
 
 trap cleanup SIGTERM SIGINT
 
-function check_options {
-  if [ $# -eq 2 ] && [ "$1" == "-f" ]; then
-  	input="Y"
-  	if [ ! IS_DOCKER_ENV ] && [ -f "$2" ]; then
-  		echo "File named [$2] Aleady exists. Overwrite? (Y/n)"
-  		read input
-  	fi
-  	if [ "$input" == "Y" ]; then
-  		echo "Write to file [$2]"
-      dest_file=$2
-  		exec 1>$tmp_file
-  	else
-  		echo "Exiting"
-  		exit 1
-  	fi
-  fi
-  return 0
-}
-
-check_options $@
+echo "Write to file [$2]"
+dest_file=$2
+exec 1>$tmp_file
 
 dirs=($(find $PWD -type d ! -path './.*' | sed 's/^\.\///' | sort))
 
@@ -60,10 +38,7 @@ fi
 cat <<EOF
 # TIL
 
-Today I Learned
-
-새로 알게 된 내용들을 저장하는 곳입니다.
-
+${ GITHUB_ENV_TIL_HEADER }
 EOF
 
 echo "# Index"

@@ -15,6 +15,9 @@ jobs:
       - name: Update README
         id: TIL
         uses: yongjulejule/TIL-github-action@testv1
+        env:
+          TIL_HEADER: ${{ vars.TIL_HEADER }}
+          
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"
