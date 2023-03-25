@@ -52,6 +52,11 @@ echo "# Index"
 dirs=($(find $PWD -type d ! -path './.*' | sed 's/^\.\///' | sort))
 
 unset dirs[0]
+
+if [[ -z $dirs ]]; then
+  echo "No directories found" >&2
+  exit 0
+fi
  
 IFS=$'\n'
 
