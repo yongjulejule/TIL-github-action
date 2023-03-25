@@ -1,6 +1,6 @@
 name: "Hi"
 
-on: push
+on: [push]
 
 jobs:
   hello-my-actions:

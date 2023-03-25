@@ -1,7 +1,9 @@
 #!/bin/bash
 
-set -x
 set -euo pipefail
+
+tmp_file=$(mktemp)
+dest_file=${DEST_FILE:-'/dev/null'}
 
 function cleanup {
   echo "cleanup"
@@ -9,30 +11,32 @@ function cleanup {
   if [ -n "$jobs" ]; then
     kill $jobs
   fi
+  rm -f $tmp_file
   exit 1
 }
 
 trap cleanup SIGTERM SIGINT EXIT
 
-tmp_file=$(mktemp)
-dest_file='/dev/null'
+function check_options {
+  if [ $# -eq 2 ] && [ "$1" == "-f" ]; then
+  	input="Y"
+  	if [ ! -f /.dockerenv ] && [ -f "$2" ]; then
+  		echo "File named [$2] Aleady exists. Overwrite? (Y/n)"
+  		read input
+  	fi
+  	if [ "$input" == "Y" ]; then
+  		echo "Write to file [$2]"
+      dest_file=$2
+  		exec 1>$tmp_file
+  	else
+  		echo "Exiting"
+  		exit 1
+  	fi
+  fi
+  return 0
+}
 
-if [ $# -eq 2 ] && [ "$1" == "-f" ]; then
-	input="Y"
-	if [ -f "$2" ]; then
-		echo "File named [$2] Aleady exists. Overwrite? (Y/n)"
-		read input
-	fi
-	if [ "$input" == "Y" ]; then
-		echo "Replace file [$2]"
-    dest_file=$2
-		exec 1>$tmp_file
-	else
-		echo "Exiting"
-		exit 1
-	fi
-fi
-
+check_options $@
 
 cat <<EOF
 # TIL

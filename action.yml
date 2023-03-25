@@ -5,6 +5,9 @@ inputs:
   about-til:
     description: "whats your TIL?"
     required: false
+outputs:
+  about-til:
+    description: "whats your TIL?"
 runs:
   using: "docker"
   image: "Dockerfile"
