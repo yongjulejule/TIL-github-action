@@ -5,8 +5,4 @@ RUN apt-get update && apt-get install -y \
 
 COPY tools/generateREADME.sh /tmp/generateREADME.sh
 
-COPY test/TIL/ /test/
-
-WORKDIR /test
-
 CMD ["/tmp/generateREADME.sh" ]
