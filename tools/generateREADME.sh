@@ -22,7 +22,7 @@ echo "Write to file [$2]"
 dest_file=$2
 exec 1>$tmp_file
 
-dirs=($(find $PWD -type d ! -path './.*' | sed 's/^\.\///' | sort))
+dirs=($(find . -type d ! -path './.*' | sed 's/^\.\///' | sort))
 
 unset dirs[0]
 
