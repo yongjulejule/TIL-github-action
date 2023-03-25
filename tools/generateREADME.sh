@@ -80,4 +80,4 @@ done
 
 [ $input == "Y" ] && mv $tmp_file $dest_file
 
-return 0
+exit 0
