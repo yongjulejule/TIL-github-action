@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/tmp/generateREADME.md -f README.md
+/tmp/generateREADME.sh -f README.md
 
 git config --local user.email "action@github.com"
 git config --local user.name "GitHub Action"
