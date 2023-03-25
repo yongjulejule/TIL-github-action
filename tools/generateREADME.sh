@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IS_DOCKER_ENV=$([ -f /.dockerenv ])
+env
 
 cd $GITHUB_WORKSPACE
 set -- "$@" "-f" "README.md"
