@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 IS_DOCKER_ENV=$([ -f /.dockerenv ])
 
 cd $GITHUB_WORKSPACE
