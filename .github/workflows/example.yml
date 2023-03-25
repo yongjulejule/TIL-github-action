@@ -3,7 +3,7 @@ name: "update readme"
 on:
   push:
     branches:
-      - main
+      - test
 
 jobs:
   update-readme:
