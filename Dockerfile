@@ -8,4 +8,4 @@ COPY tools/generateREADME.sh /tmp/generateREADME.sh
 
 WORKDIR /main
 
-CMD ["/tmp/generateREADME.sh"]
+CMD ["/tmp/generateREADME.sh" ]

@@ -2,6 +2,13 @@
 
 set -euo pipefail
 
+IS_DOCKER_ENV=$([ -f /.dockerenv ])
+
+if [ IS_DOCKER_ENV ]; then
+  cd $GITHUB_WORKSPACE
+  set -- "$@" "-f" "README.md"
+fi
+
 echo "hi"
 exit 0
 
@@ -23,7 +30,7 @@ trap cleanup SIGTERM SIGINT
 function check_options {
   if [ $# -eq 2 ] && [ "$1" == "-f" ]; then
   	input="Y"
-  	if [ ! -f /.dockerenv ] && [ -f "$2" ]; then
+  	if [ ! IS_DOCKER_ENV ] && [ -f "$2" ]; then
   		echo "File named [$2] Aleady exists. Overwrite? (Y/n)"
   		read input
   	fi
