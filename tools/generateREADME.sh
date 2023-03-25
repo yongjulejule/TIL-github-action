@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -x
+
+ls 
+
+pwd
+
+env
+
 cd $GITHUB_WORKSPACE
 set -- "$@" "-f" "README.md"
 
