@@ -17,7 +17,6 @@ jobs:
         uses: yongjulejule/TIL-github-action@v1
         env:
           TIL_HEADER: ${{ vars.TIL_HEADER }}
-          
       - name: Commit changes
         run: |
           git config --local user.email "action@github.com"

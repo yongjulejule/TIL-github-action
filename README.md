@@ -61,3 +61,7 @@ jobs:
           reviewers: ${{ github.actor }}
           draft: false
 ```
+
+# known issues
+
+- If there are spaces in the filename, it may not work correctly.
